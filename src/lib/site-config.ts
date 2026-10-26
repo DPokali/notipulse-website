@@ -14,7 +14,7 @@ export const siteConfig = {
     "Track notification history, app stats and daily noise on Android. NotiPulse keeps notification insights local and helps you understand distractions.",
 
   /** Set to true and add googlePlayUrl when the app is live on Play Store. */
-  playStorePublished: false,
+  playStorePublished: true,
   googlePlayUrl:
     "https://play.google.com/store/apps/details?id=com.denpokali.notipulse",
 
