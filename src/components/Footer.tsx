@@ -18,9 +18,8 @@ export function Footer() {
           <div>
             <Logo />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">
-              Local notification analytics for Android. Understand which apps
-              interrupt you most—without blocking notifications or sending your
-              data to the cloud.
+              Search saved Android notifications, find dismissed alerts and understand
+              your notification activity. Your history stays on your device.
             </p>
             <div className="mt-6">
               <PlayStoreButton size="sm" />
@@ -42,7 +41,8 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h2 className="text-sm font-semibold text-foreground">Support</h2>
+            <h2 className="text-sm font-semibold text-foreground">Guides &amp; support</h2>
+            <Link href="/guides" className="mt-4 inline-block text-sm text-accent">Android notification guides</Link>
             <p className="mt-4 text-sm text-muted">
               Questions, bugs, or privacy requests:
             </p>

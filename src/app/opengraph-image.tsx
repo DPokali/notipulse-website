@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/lib/site-config";
 
-export const alt = `${siteConfig.name} — notification analytics for Android`;
+export const alt = `${siteConfig.name} - notification history for Android`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -41,7 +41,7 @@ export default function OgImage() {
           <span style={{ fontSize: 52, fontWeight: 700 }}>{siteConfig.name}</span>
         </div>
         <p style={{ fontSize: 34, lineHeight: 1.35, maxWidth: 900, color: "#cbd5e1" }}>
-          Local notification log, stats & daily digest for Android
+          Save and search your Android notification history
         </p>
         <p style={{ fontSize: 24, marginTop: 24, color: "#6ee7b7" }}>{siteConfig.domain}</p>
       </div>

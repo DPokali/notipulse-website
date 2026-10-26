@@ -3,19 +3,21 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { PlayStoreButton } from "./PlayStoreButton";
 import { Logo } from "./Logo";
 
 const navLinks = [
   { href: "/#features", label: "Features", match: "/" },
   { href: "/#privacy", label: "Privacy", match: "/" },
   { href: "/#faq", label: "FAQ", match: "/" },
+  { href: "/guides", label: "Guides", match: "/guides" },
   { href: "/contact", label: "Contact", match: "/contact" },
 ];
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const onContact = pathname === "/contact";
+
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-lg">
@@ -23,7 +25,7 @@ export function Header() {
         <Logo />
         <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
           {navLinks.map((link) => {
-            const active = link.match === "/contact" && pathname === "/contact";
+            const active = link.match !== "/" && (pathname === link.match || pathname.startsWith(`${link.match}/`));
             return (
               <Link
                 key={link.href}
@@ -40,11 +42,7 @@ export function Header() {
           })}
         </nav>
         <div className="flex items-center gap-2">
-          {!onContact && (
-            <Link href="/contact" className="btn-primary hidden sm:inline-flex">
-              Contact
-            </Link>
-          )}
+          <PlayStoreButton size="sm" className="hidden sm:inline-flex" />
           <button
             type="button"
             className="btn-ghost inline-flex md:hidden"

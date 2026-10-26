@@ -13,6 +13,7 @@ import {
   websiteJsonLd,
 } from "@/lib/json-ld";
 import { buildMetadata } from "@/lib/metadata";
+import { guides } from "@/content/guides";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata = buildMetadata({
@@ -28,15 +29,14 @@ const features: {
   icon: FeatureIconName;
 }[] = [
   {
-    title: "Notification stats",
-    description:
-      "By app, hour, and weekday. Views for today, yesterday, week, and all time.",
-    icon: "stats",
+    title: "Notification history",
+    description: "Search saved notification text, filter your log and export to CSV or PDF.",
+    icon: "history",
   },
   {
-    title: "Notification history",
-    description: "Full log with search, filters, and CSV or PDF export on demand.",
-    icon: "history",
+    title: "Notification stats",
+    description: "See activity by app, hour and weekday, with views for different periods.",
+    icon: "stats",
   },
   {
     title: "Actions analytics",
@@ -75,16 +75,16 @@ const benefits = [
 const steps = [
   "Install NotiPulse from Google Play.",
   "Allow notification access in Android settings.",
-  "The app starts counting notifications locally.",
-  "Open stats, history, and daily summaries.",
-  "Configure Privacy Mode, quiet window, categories, and exclusions.",
-  "Review weekly trends and adjust habits at your own pace.",
+  "Keep Privacy Mode off if you want to save notification text.",
+  "New notifications are recorded locally while access is active.",
+  "Open History to search saved text or filter by app.",
+  "Review cleanup settings, statistics and optional daily summaries.",
 ];
 
 const screenshots: { label: string; screen: Parameters<typeof PhoneMockup>[0]["screen"] }[] = [
-  { label: "Home dashboard", screen: "dashboard" },
+  { label: "Notification history", screen: "history" },
   { label: "Apps stats", screen: "apps" },
-  { label: "History", screen: "history" },
+  { label: "Home dashboard", screen: "dashboard" },
   { label: "Categories", screen: "categories" },
   { label: "Daily digest", screen: "digest" },
   { label: "Privacy settings", screen: "privacy" },
@@ -105,11 +105,11 @@ export default function HomePage() {
               Notification data stays on your device
             </p>
             <h1 className="text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-[3.25rem] lg:leading-[1.1]">
-              Understand which notifications distract you most
+              Save and search your Android notification history
             </h1>
             <p className="mt-5 max-w-xl text-pretty text-xl text-muted leading-relaxed">
-              NotiPulse shows notification stats by app, time and action — locally on
-              your Android device.
+              Find saved notifications you swiped away, search their text and see which
+              apps interrupt you most. Your notification history stays on your device.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <PlayStoreButton size="lg" />
@@ -118,7 +118,7 @@ export default function HomePage() {
               </Link>
             </div>
             <p className="mt-6 text-xs text-muted">
-              Not a notification blocker · Not affiliated with Google or Android
+              History starts after setup. Previously dismissed notifications that were never saved cannot be recovered.
             </p>
           </div>
           <div className="relative flex justify-center lg:justify-end">
@@ -126,29 +126,24 @@ export default function HomePage() {
               className="absolute -inset-4 rounded-full bg-accent-bright/15 blur-3xl"
               aria-hidden
             />
-            <PhoneMockup screen="dashboard" size="hero" className="relative" />
+            <figure className="relative w-full max-w-[300px]"><PhoneMockup screen="history" size="hero" /><figcaption className="mt-4 text-center text-xs text-muted">Illustrative history preview with sample data</figcaption></figure>
           </div>
         </div>
       </section>
 
-      <Section id="problem" className="bg-surface/80">
-        <blockquote className="relative mx-auto max-w-3xl rounded-2xl border border-border bg-card px-6 py-10 text-center text-xl font-medium leading-relaxed shadow-sm sm:px-10 sm:text-2xl">
-          <span
-            className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent/15 px-3 py-0.5 text-xs font-semibold uppercase tracking-wider text-accent"
-          >
-            The problem
-          </span>
-          Your phone may feel noisy, but without numbers it is hard to see which apps
-          actually create the most interruptions. NotiPulse turns notification noise into
-          clear, local stats.
-        </blockquote>
+      <Section id="problem" eyebrow="Dismissed a notification?" title="Find it in the history you saved" className="bg-surface/80">
+        <div className="mx-auto max-w-3xl space-y-5 text-lg leading-relaxed text-muted">
+          <p>A delivery update, a reminder or a message preview can disappear with one swipe. If NotiPulse was already saving notifications, open History and search for the text or filter by app.</p>
+          <p>Not installed when it happened? Check Android&apos;s built-in history if it was already enabled. Installing a logger now cannot bring back a dismissed notification it never recorded.</p>
+          <Link href="/guides/see-dismissed-notifications-android" className="inline-block font-semibold text-accent underline underline-offset-4">See what you can do after dismissing a notification</Link>
+        </div>
       </Section>
 
       <Section
         id="features"
         eyebrow="Features"
-        title="Everything you need to understand notification noise"
-        description="Analytics, history, and habits — built for Android and stored on your phone."
+        title="Your notification log, search and statistics"
+        description="Review saved notifications first. Explore your notification habits when you need more detail."
       >
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((f) => (
@@ -208,7 +203,7 @@ export default function HomePage() {
       <Section
         id="how-it-works"
         eyebrow="How it works"
-        title="Six steps to clearer notification habits"
+        title="Start saving your notification history"
         dark
       >
         <ol className="mx-auto grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -249,6 +244,20 @@ export default function HomePage() {
         </div>
       </Section>
 
+      <Section id="android-history" eyebrow="Built-in history or NotiPulse?" title="Choose the history that fits your needs" dark>
+        <div className="grid gap-6 md:grid-cols-2">
+          <article className="feature-card"><h3 className="text-xl font-semibold">Android notification history</h3><p className="mt-4 text-muted">Start with your phone&apos;s built-in history to check recent dismissed notifications. Availability and settings vary by device, and history needs to have been enabled.</p></article>
+          <article className="feature-card"><h3 className="text-xl font-semibold">NotiPulse</h3><p className="mt-4 text-muted">Build a searchable local log with filters and CSV or PDF export. See notification counts by app and time. Check cleanup settings for retention; text is not saved in Privacy Mode.</p></article>
+        </div>
+        <p className="mt-8 text-center"><Link href="/guides/android-notification-history-vs-notipulse" className="font-semibold text-accent underline underline-offset-4">Compare Android history and NotiPulse</Link></p>
+      </Section>
+
+      <Section id="guides" eyebrow="Practical guides" title="Get more from your notification history">
+        <div className="grid gap-6 sm:grid-cols-2">
+          {guides.map((guide) => <article className="feature-card" key={guide.slug}><h3 className="text-xl font-semibold"><Link className="hover:text-accent" href={`/guides/${guide.slug}`}>{guide.title}</Link></h3><p className="mt-3 text-muted">{guide.description}</p><Link className="mt-5 inline-block font-semibold text-accent" href={`/guides/${guide.slug}`}>Read guide →</Link></article>)}
+        </div>
+      </Section>
+
       <Section id="faq" eyebrow="FAQ" title="Frequently asked questions">
         <FaqAccordion items={faqItems} />
       </Section>
@@ -257,7 +266,7 @@ export default function HomePage() {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-accent-bright/10 to-transparent" aria-hidden />
         <div className="relative mx-auto max-w-2xl px-4 text-center sm:px-6">
           <AppBellIcon size={40} className="mx-auto text-accent" />
-          <h2 className="mt-4 text-2xl font-semibold sm:text-3xl">Ready to see your numbers?</h2>
+          <h2 className="mt-4 text-2xl font-semibold sm:text-3xl">Start your notification history today</h2>
           <p className="mt-3 text-muted">
             Free on Android. All features included. No subscription.
           </p>

@@ -112,8 +112,8 @@ function DashboardScreen() {
       </div>
       <div className="flex min-h-0 flex-1 flex-col justify-between gap-0.5">
         <AppRow name="Messages" count={18} pct={38} color="#6EE7B7" compact />
-        <AppRow name="Social" count={14} pct={30} color="#93C5FD" compact />
-        <AppRow name="Email" count={9} pct={19} color="#F9A8D4" compact />
+        <AppRow name="Social" count={10} pct={21} color="#93C5FD" compact />
+        <AppRow name="Email" count={7} pct={15} color="#F9A8D4" compact />
         <AppRow name="Work" count={6} pct={13} color="#FCD34D" compact />
         <AppRow name="News" count={4} pct={9} color="#A5B4FC" compact />
         <AppRow name="Other" count={2} pct={4} color="#94A3B8" compact />

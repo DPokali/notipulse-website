@@ -3,15 +3,15 @@
  */
 export const siteConfig = {
   name: "NotiPulse",
-  tagline: "Notification analytics for Android",
+  tagline: "Notification history and stats for Android",
   domain: "notipulse.site",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://notipulse.site",
   supportEmail: "notipulse.app@gmail.com",
   copyrightYear: 2026,
 
-  defaultTitle: "NotiPulse — Notification Log & Stats for Android",
+  defaultTitle: "Android Notification History & Log - NotiPulse",
   defaultDescription:
-    "Track notification history, app stats and daily noise on Android. NotiPulse keeps notification insights local and helps you understand distractions.",
+    "Save and search your Android notification history. Find saved alerts you swiped away and explore app notification stats. Your history stays on your device.",
 
   /** Set to true and add googlePlayUrl when the app is live on Play Store. */
   playStorePublished: true,
